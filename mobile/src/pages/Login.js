@@ -26,9 +26,6 @@ export default function Login({ navigation }) {
   }, []);
 
   async function handleSubmit() {
-    console.log(email);
-    console.log(techs);
-
     const response = await api.post("/sessions", { email });
     const { _id } = response.data;
 
@@ -36,8 +33,6 @@ export default function Login({ navigation }) {
     await AsyncStorage.setItem("techs", techs);
 
     navigation.navigate("List");
-
-    console.log(_id);
   }
   return (
     <KeyboardAvoidingView
